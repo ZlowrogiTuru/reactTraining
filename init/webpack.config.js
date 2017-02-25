@@ -1,5 +1,5 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -8,17 +8,16 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, './public'),
+    path: path.resolve(__dirname, './public/js'),
     filename: '[name].js',
-    publicPath: '/public/'
+    publicPath: '/public/js'
   },
 
   module: {
     loaders: [{
       loader: 'babel-loader',
       include: [
-        path.resolve(__dirname, 'app.js'),
-        path.resolve(__dirname, 'components')
+        path.resolve(__dirname, 'src/app.js')
       ],
       test: [/\.js$/]
     }]
@@ -36,4 +35,4 @@ module.exports = {
   ],
 
   devtool: 'source-map'
-}
+};
