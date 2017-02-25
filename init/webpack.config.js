@@ -37,10 +37,6 @@ module.exports = {
       options: {
         limit: 25000
       }
-    },
-    {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
     }]
   },
 
