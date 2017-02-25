@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: ['./src/app.js'],
+    app: ['./src/index.js'],
     vendor: ['react', 'react-dom']
   },
 
@@ -15,11 +15,32 @@ module.exports = {
 
   module: {
     loaders: [{
+      test: [/\.js$/],
       loader: 'babel-loader',
       include: [
-        path.resolve(__dirname, 'src/app.js')
-      ],
-      test: [/\.js$/]
+        path.resolve(__dirname, 'src/')
+      ]
+    },
+    {
+      test: /\.less$/,
+      loaders: [
+        'style-loader',
+        {
+          loader: 'css-loader', options: { importLoaders: 1 }
+        },
+        'less-loader'
+      ]
+    },
+    {
+      test: /\.(jpg|png)$/,
+      loader: 'url-loader',
+      options: {
+        limit: 25000
+      }
+    },
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
     }]
   },
 

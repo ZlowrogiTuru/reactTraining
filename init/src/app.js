@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-
+import React, { Component, PropTypes } from 'react';
 class App extends Component {
   render () {
-    return <div>Witaj!!!!!!!!!!!!</div>;
+    return <div>{this.props.children}</div>;
   };
 }
 
-ReactDom.render(<App />, document.getElementById('app'));
+App.propTypes = {
+  children: PropTypes.node
+};
+
+export default App;
